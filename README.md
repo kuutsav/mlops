@@ -6,7 +6,7 @@
 A project based example of data pipelines, ML workflow management, deployment
 and monitoring.
 
-## Setup
+## Requirements
 
 ### Poetry
 
@@ -22,4 +22,10 @@ $ poetry --version
 $ pip install pre-commit
 $ pre-commit --version
 # pre-commit 2.15.0
+```
+
+## Setup
+
+```bash
+$ poetry install
 ```
