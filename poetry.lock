@@ -322,6 +322,25 @@ python-versions = ">=3.6"
 test = ["pytest", "black"]
 
 [[package]]
+name = "elastic-apm"
+version = "6.5.0"
+description = "The official Python module for Elastic APM"
+category = "main"
+optional = false
+python-versions = "<4,>=3.6"
+
+[package.dependencies]
+certifi = "*"
+urllib3 = "*"
+
+[package.extras]
+aiohttp = ["aiohttp"]
+flask = ["blinker"]
+opentracing = ["opentracing (>=2.0.0)"]
+starlette = ["starlette"]
+tornado = ["tornado"]
+
+[[package]]
 name = "entrypoints"
 version = "0.3"
 description = "Discover and load entry points from installed packages."
@@ -1369,7 +1388,7 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "ca57a5c63cd7c74940182fb28c253bbc2c9c88e63119203f99b219b53f43c607"
+content-hash = "28ad612a22a556fab5207c5ab6981ce102b87b8c08c739fd8bf0b09a354c3dc3"
 
 [metadata.files]
 alembic = [
@@ -1504,6 +1523,19 @@ docker = [
 ]
 docstring-parser = [
     {file = "docstring_parser-0.11.tar.gz", hash = "sha256:93b3f8f481c7d24e37c5d9f30293c89e2933fa209421c8abd731dd3ef0715ecb"},
+]
+elastic-apm = [
+    {file = "elastic-apm-6.5.0.tar.gz", hash = "sha256:1397d6ff2b817ab50282e43d27d636ad39fe37220f2c318eaaac3aaf057d79dd"},
+    {file = "elastic_apm-6.5.0-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:be077c0260cb1d55ed4a1663e1e018b515646d01df2100f424f64945a9fd4980"},
+    {file = "elastic_apm-6.5.0-cp310-cp310-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:4bd895563469366fdd9e2fb9387dd500179a54cb127ebef2257efdf9577f091b"},
+    {file = "elastic_apm-6.5.0-cp36-cp36m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:6d6d65069755f3e2491c39d8fb9ac49914cded5d442349afb33587d75f1af623"},
+    {file = "elastic_apm-6.5.0-cp36-cp36m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:68693bcc104cd5d1316b3c66e7cc5f02cf3c56da7a068ac4e139c9ebdba36944"},
+    {file = "elastic_apm-6.5.0-cp37-cp37m-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:88e16177eb62465d13d6ec93e4558ccae54ddfb58d9f5c9e9af38c991537ee4c"},
+    {file = "elastic_apm-6.5.0-cp37-cp37m-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:f6d3e5aefdaf6f8da42e24d53bb3a2f20a73e6b81f2357221ec7013e94e5b113"},
+    {file = "elastic_apm-6.5.0-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:3d0b5a61cfa040cdfde84241510c30d4364e1c742215f8d938cf9d3a9161c5cc"},
+    {file = "elastic_apm-6.5.0-cp38-cp38-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:a5c37ae764242c3f66c20c06786c8e39a2b937c1b5b7c15272fefd5ea8c52e87"},
+    {file = "elastic_apm-6.5.0-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_12_i686.manylinux2010_i686.whl", hash = "sha256:adea5d1077887efab5479576e76e722d5edddce98f321bb04248f2510d638480"},
+    {file = "elastic_apm-6.5.0-cp39-cp39-manylinux_2_5_x86_64.manylinux1_x86_64.manylinux_2_12_x86_64.manylinux2010_x86_64.whl", hash = "sha256:90eae5dd2a3943db416c10ff61d89a6584306b3ba0be3174e4718a4c14b41e80"},
 ]
 entrypoints = [
     {file = "entrypoints-0.3-py2.py3-none-any.whl", hash = "sha256:589f874b313739ad35be6e0cd7efde2a4e9b6fea91edcc34e58ecbb8dbe56d19"},

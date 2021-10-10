@@ -10,7 +10,9 @@ from mlops.utils.config import BASE_DIR, set_env_vars
 
 set_env_vars()
 router = APIRouter()
-sk_model = mlflow.sklearn.load_model(model_uri="models:/sk-learn-naive-bayes-clf-model/4")
+sk_model = mlflow.sklearn.load_model(
+    model_uri="models:/sk-learn-naive-bayes-clf-model/4"
+)
 with open(BASE_DIR / "artifacts/target_encoder.pkl", "rb") as f:
     target_encoder = pickle.load(f)
 with open(BASE_DIR / "artifacts/vectorizer.pkl", "rb") as f:
