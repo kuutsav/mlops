@@ -141,6 +141,8 @@ cython_debug/
 .vscode
 
 # local dev data
+mlflow.db
 data_dev/
 mlruns/
+artifacts/
 tmp*
