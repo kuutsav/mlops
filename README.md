@@ -27,8 +27,8 @@ $ pre-commit --version
 ### Minio
 
 ```bash
-$ export MINIO_ROOT_USER=myminioaccesskey
-$ export MINIO_ROOT_PASSWORD=myminiosecretkey
+$ export MINIO_ROOT_USER=minioadmin
+$ export MINIO_ROOT_PASSWORD=minioadmin
 
 $ minio server /mnt/data
 ```
@@ -37,4 +37,17 @@ $ minio server /mnt/data
 
 ```bash
 $ poetry install
+```
+
+```bash
+$ export MLFLOW_S3_ENDPOINT_URL=http://127.0.0.1:9000
+$ export AWS_ACCESS_KEY_ID=minioadmin
+$ export AWS_SECRET_ACCESS_KEY=minioadmin
+```
+
+```bash
+$ mlflow server \                                   
+    --backend-store-uri sqlite:///mlflow.db \
+    --default-artifact-root s3://mlflow \
+    --host 0.0.0.0
 ```
