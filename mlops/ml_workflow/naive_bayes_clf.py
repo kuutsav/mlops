@@ -1,21 +1,26 @@
 import os
 
+from loguru import logger
 import mlflow
 import mlflow.sklearn
 import numpy as np
 from sklearn.metrics import classification_report, precision_recall_fscore_support
 from sklearn.naive_bayes import MultinomialNB
 
-mlflow.set_tracking_uri("sqlite:///mlflow.db")
-os.environ["MLFLOW_S3_ENDPOINT_URL"] = "http://127.0.0.1:9000"
-os.environ["AWS_ACCESS_KEY_ID"] = "minioadmin"
-os.environ["AWS_SECRET_ACCESS_KEY"] = "minioadmin"
+mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
+
+exps = [exp.name for exp in mlflow.tracking.MlflowClient().list_experiments()]
+if not os.getenv("MLFLOW_EXPERIMENT_NAME") in exps:
+    mlflow.create_experiment(
+        os.getenv("MLFLOW_EXPERIMENT_NAME"),
+        artifact_location=os.getenv("MLFLOW_ARTIFACT_LOCATION"),
+    )
 
 
 def train_and_validate_clf(
     X_train: np.array, X_test: np.array, y_train: np.array, y_test: np.array
 ) -> str:
-    mlflow.set_experiment("MLFlowMinio")
+    mlflow.set_experiment(os.getenv("MLFLOW_EXPERIMENT_NAME"))
     with mlflow.start_run(run_name="NAIVE_BAYES_CLF"):
         clf = MultinomialNB()
         mlflow.log_param("alpha", clf.get_params()["alpha"])
