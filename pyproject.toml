@@ -9,6 +9,7 @@ python = "^3.8"
 dagster = "^0.12.14"
 dagit = "^0.12.14"
 mlflow = "^1.20.2"
+boto3 = "^1.18.58"
 
 [tool.poetry.dev-dependencies]
 

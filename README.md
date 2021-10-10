@@ -24,6 +24,15 @@ $ pre-commit --version
 # pre-commit 2.15.0
 ```
 
+### Minio
+
+```bash
+$ export MINIO_ROOT_USER=myminioaccesskey
+$ export MINIO_ROOT_PASSWORD=myminiosecretkey
+
+$ minio server /mnt/data
+```
+
 ## Setup
 
 ```bash

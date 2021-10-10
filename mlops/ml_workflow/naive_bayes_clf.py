@@ -1,15 +1,21 @@
+import os
+
 import mlflow
 import mlflow.sklearn
 import numpy as np
 from sklearn.metrics import classification_report, precision_recall_fscore_support
 from sklearn.naive_bayes import MultinomialNB
 
-mlflow.set_tracking_uri("http://localhost:5000")
+mlflow.set_tracking_uri("sqlite:///mlflow.db")
+os.environ["MLFLOW_S3_ENDPOINT_URL"] = "http://127.0.0.1:9000"
+os.environ["AWS_ACCESS_KEY_ID"] = "minioadmin"
+os.environ["AWS_SECRET_ACCESS_KEY"] = "minioadmin"
 
 
 def train_and_validate_clf(
     X_train: np.array, X_test: np.array, y_train: np.array, y_test: np.array
 ) -> str:
+    mlflow.set_experiment("MLFlowMinio")
     with mlflow.start_run(run_name="NAIVE_BAYES_CLF"):
         clf = MultinomialNB()
         mlflow.log_param("alpha", clf.get_params()["alpha"])
@@ -21,7 +27,7 @@ def train_and_validate_clf(
         mlflow.log_metric("f1_score", scores[2])
         mlflow.sklearn.log_model(
             sk_model=clf,
-            artifact_path="sklearn-model",
+            artifact_path="naive-bayes-model",
             registered_model_name="sk-learn-naive-bayes-clf-model",
         )
 
