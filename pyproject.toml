@@ -10,6 +10,8 @@ dagster = "^0.12.14"
 dagit = "^0.12.14"
 mlflow = "^1.20.2"
 boto3 = "^1.18.58"
+fastapi = "^0.70.0"
+uvicorn = "^0.15.0"
 
 [tool.poetry.dev-dependencies]
 

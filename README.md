@@ -32,13 +32,13 @@ $ export MINIO_ROOT_PASSWORD=minioadmin
 
 $ minio server minio_data --console-address ":9001"
 
-# API: http://192.168.29.103:9000  http://10.119.80.13:9000  http://127.0.0.1:9000                   
-# RootUser: minioadmin 
-# RootPass: minioadmin 
+# API: http://192.168.29.103:9000  http://10.119.80.13:9000  http://127.0.0.1:9000
+# RootUser: minioadmin
+# RootPass: minioadmin
 
-# Console: http://192.168.29.103:9001 http://10.119.80.13:9001 http://127.0.0.1:9001          
-# RootUser: minioadmin 
-# RootPass: minioadmin 
+# Console: http://192.168.29.103:9001 http://10.119.80.13:9001 http://127.0.0.1:9001
+# RootUser: minioadmin
+# RootPass: minioadmin
 
 # Command-line: https://docs.min.io/docs/minio-client-quickstart-guide
 #    $ mc alias set myminio http://192.168.29.103:9000 minioadmin minioadmin
@@ -59,7 +59,7 @@ $ export AWS_SECRET_ACCESS_KEY=minioadmin
 ```
 
 ```bash
-$ mlflow server \                                   
+$ mlflow server \
     --backend-store-uri sqlite:///mlflow.db \
     --default-artifact-root s3://mlflow \
     --host 0.0.0.0

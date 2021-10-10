@@ -1,14 +1,17 @@
 import os
 
-from loguru import logger
 import mlflow
 import mlflow.sklearn
 import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import classification_report, precision_recall_fscore_support
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.preprocessing import LabelEncoder
 
+from mlops.utils.config import set_env_vars
+
+set_env_vars()
 mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
-
 exps = [exp.name for exp in mlflow.tracking.MlflowClient().list_experiments()]
 if not os.getenv("MLFLOW_EXPERIMENT_NAME") in exps:
     mlflow.create_experiment(
@@ -18,9 +21,15 @@ if not os.getenv("MLFLOW_EXPERIMENT_NAME") in exps:
 
 
 def train_and_validate_clf(
-    X_train: np.array, X_test: np.array, y_train: np.array, y_test: np.array
+    X_train: np.array,
+    X_test: np.array,
+    y_train: np.array,
+    y_test: np.array,
+    vectorizer: TfidfVectorizer,
+    target_encoder: LabelEncoder,
 ) -> str:
     mlflow.set_experiment(os.getenv("MLFLOW_EXPERIMENT_NAME"))
+
     with mlflow.start_run(run_name="NAIVE_BAYES_CLF"):
         clf = MultinomialNB()
         mlflow.log_param("alpha", clf.get_params()["alpha"])

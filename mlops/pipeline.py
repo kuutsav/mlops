@@ -1,8 +1,10 @@
+import pickle
+
 from dagster import Output, OutputDefinition, pipeline, solid
 
 from mlops.data_processing import dataloaders, featurizer, text_preprocessing
 from mlops.ml_workflow import encode_target, naive_bayes_clf, train_test
-from mlops.utils.config import INPUT_DATASET_LOC
+from mlops.utils.config import BASE_DIR, INPUT_DATASET_LOC
 
 
 @solid(
@@ -33,6 +35,8 @@ def preprocess_text(context, texts):
 )
 def get_vectorizer_and_features(context, texts):
     vectorizer, X = featurizer.get_vectorizer_and_features(texts)
+    with open(BASE_DIR / "artifacts/vectorizer.pkl", "wb") as f:
+        pickle.dump(vectorizer, f)
     context.log.info(f"Featurized text; Shape={X.shape}")
     yield Output(vectorizer, "vectorizer")
     yield Output(X, "X")
@@ -49,6 +53,8 @@ def get_targetencoder_and_encoded_targets(context, target):
         target_encoder,
         encoded_target,
     ) = encode_target.get_targetencoder_and_encoded_targets(target)
+    with open(BASE_DIR / "artifacts/target_encoder.pkl", "wb") as f:
+        pickle.dump(target_encoder, f)
     context.log.info(
         f"Target encoded; Shape={len(encoded_target)}, Classes={target_encoder.classes_}"
     )
@@ -77,8 +83,12 @@ def train_test_split(context, texts, target):
 
 
 @solid
-def train_clf(context, X_train, X_test, y_train, y_test) -> None:
-    report = naive_bayes_clf.train_and_validate_clf(X_train, X_test, y_train, y_test)
+def train_clf(
+    context, X_train, X_test, y_train, y_test, vectorizer, target_encoder
+) -> None:
+    report = naive_bayes_clf.train_and_validate_clf(
+        X_train, X_test, y_train, y_test, vectorizer, target_encoder
+    )
     context.log.info(report)
 
 
@@ -88,4 +98,4 @@ def ml_pipeline():
     vectorizer, X = get_vectorizer_and_features(preprocess_text(texts))
     target_encoder, encoded_target = get_targetencoder_and_encoded_targets(target)
     X_train, X_test, y_train, y_test = train_test_split(X, encoded_target)
-    train_clf(X_train, X_test, y_train, y_test)
+    train_clf(X_train, X_test, y_train, y_test, vectorizer, target_encoder)

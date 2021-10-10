@@ -141,7 +141,6 @@ cython_debug/
 .vscode
 
 # local dev data
-artifacts/
 data_dev/
 mlflow.db
 minio_data/
