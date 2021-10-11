@@ -1,7 +1,7 @@
-from elasticapm.contrib.starlette import make_apm_client, ElasticAPM
+import uvicorn
+from elasticapm.contrib.starlette import ElasticAPM, make_apm_client
 from fastapi import FastAPI
 from loguru import logger
-import uvicorn
 
 from mlops.app.routes.router import api_router
 

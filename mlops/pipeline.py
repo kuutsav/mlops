@@ -91,12 +91,8 @@ def train_test_split(context, texts, target):
 
 
 @solid
-def train_clf(
-    context, X_train, X_test, y_train, y_test, vectorizer, target_encoder
-) -> None:
-    report = naive_bayes_clf.train_and_validate_clf(
-        X_train, X_test, y_train, y_test, vectorizer, target_encoder
-    )
+def train_clf(context, X_train, X_test, y_train, y_test) -> None:
+    report = naive_bayes_clf.train_and_validate_clf(X_train, X_test, y_train, y_test)
     context.log.info(report)
 
 
@@ -112,4 +108,4 @@ def ml_pipeline():
     # 5. train test split
     X_train, X_test, y_train, y_test = train_test_split(X, encoded_target)
     # 6. model training, validation, registry, artifact storage
-    train_clf(X_train, X_test, y_train, y_test, vectorizer, target_encoder)
+    train_clf(X_train, X_test, y_train, y_test)

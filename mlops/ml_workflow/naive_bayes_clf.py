@@ -3,10 +3,8 @@ import os
 import mlflow
 import mlflow.sklearn
 import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import classification_report, precision_recall_fscore_support
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.preprocessing import LabelEncoder
 
 from mlops.utils.config import set_env_vars
 
@@ -25,12 +23,7 @@ if not os.getenv("MLFLOW_EXPERIMENT_NAME") in exps:
 
 
 def train_and_validate_clf(
-    X_train: np.array,
-    X_test: np.array,
-    y_train: np.array,
-    y_test: np.array,
-    vectorizer: TfidfVectorizer,
-    target_encoder: LabelEncoder,
+    X_train: np.array, X_test: np.array, y_train: np.array, y_test: np.array
 ) -> str:
     mlflow.set_experiment(os.getenv("MLFLOW_EXPERIMENT_NAME"))
 

@@ -9,7 +9,7 @@ and Monitoring.
 Tools used:
 - `Data Pipeline`: [Dagster](https://github.com/dagster-io/dagster)
 - `ML workflow`: [MLflow](https://github.com/mlflow/mlflow)
-- `API Deployment`: [FastAPI](https://github.com/tiangolo/fastapi) 
+- `API Deployment`: [FastAPI](https://github.com/tiangolo/fastapi)
 - `Monitoring`: [ElasticAPM](https://www.elastic.co/apm/)
 
 ## Requirements
