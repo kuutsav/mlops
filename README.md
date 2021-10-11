@@ -12,6 +12,8 @@ Tools used:
 - `API Deployment`: [FastAPI](https://github.com/tiangolo/fastapi)
 - `Monitoring`: [ElasticAPM](https://www.elastic.co/apm/)
 
+Blog posts - https://kuutsav.github.io/mlops/mlops_template/setup/
+
 ## Requirements
 
 ### Poetry [`Dependency management`]
