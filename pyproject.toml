@@ -15,6 +15,7 @@ uvicorn = "^0.15.0"
 elastic-apm = "^6.5.0"
 psutil = "^5.8.0"
 scikit-learn = "^1.0"
+loguru = "^0.5.3"
 
 [tool.poetry.dev-dependencies]
 
