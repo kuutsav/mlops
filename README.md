@@ -95,6 +95,15 @@ $ dagit -f mlops/pipeline.py
 $ docker-compose -f docker-compose-monitoring.yaml up
 ```
 
+### FastAPI
+
+```bash
+$ poetry shell
+$ export PYTHONPATH=.
+$ python mlops/app/application.py
+```
+
+
 ## TODO
 - Setup with `docker-compose`.
 - Load testing.

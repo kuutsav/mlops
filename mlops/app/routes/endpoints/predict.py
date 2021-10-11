@@ -13,7 +13,9 @@ set_env_vars()
 router = APIRouter()
 
 # manually pick the model version from trained models
-sk_model = mlflow.sklearn.load_model(model_uri="models:/sk-learn-naive-bayes-clf-model/1")
+sk_model = mlflow.sklearn.load_model(
+    model_uri="models:/sk-learn-naive-bayes-clf-model/1"
+)
 
 # mlflow does not store data manipulation routines like label encoding
 # we need to manage the LabelEncoder and TfidfVectorizer ourselves
