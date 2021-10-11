@@ -35,8 +35,12 @@ def preprocess_text(context, texts):
 )
 def get_vectorizer_and_features(context, texts):
     vectorizer, X = featurizer.get_vectorizer_and_features(texts)
+
+    # mlflow does not store data manipulation routines like vectorization
+    # we need to manage the TfidfVectorizer ourselves
     with open(BASE_DIR / "artifacts/vectorizer.pkl", "wb") as f:
         pickle.dump(vectorizer, f)
+
     context.log.info(f"Featurized text; Shape={X.shape}")
     yield Output(vectorizer, "vectorizer")
     yield Output(X, "X")
@@ -53,8 +57,12 @@ def get_targetencoder_and_encoded_targets(context, target):
         target_encoder,
         encoded_target,
     ) = encode_target.get_targetencoder_and_encoded_targets(target)
+
+    # mlflow does not store data manipulation routines like label encoding
+    # we need to manage the LabelEncoder ourselves
     with open(BASE_DIR / "artifacts/target_encoder.pkl", "wb") as f:
         pickle.dump(target_encoder, f)
+
     context.log.info(
         f"Target encoded; Shape={len(encoded_target)}, Classes={target_encoder.classes_}"
     )
@@ -94,8 +102,14 @@ def train_clf(
 
 @pipeline
 def ml_pipeline():
+    # 1. fetch training data
     texts, target = get_training_dataset()
+    # 2. minimal text preprocessing
+    # 3. tfidf vectorization
     vectorizer, X = get_vectorizer_and_features(preprocess_text(texts))
+    # 4. target encoding
     target_encoder, encoded_target = get_targetencoder_and_encoded_targets(target)
+    # 5. train test split
     X_train, X_test, y_train, y_test = train_test_split(X, encoded_target)
+    # 6. model training, validation, registry, artifact storage
     train_clf(X_train, X_test, y_train, y_test, vectorizer, target_encoder)

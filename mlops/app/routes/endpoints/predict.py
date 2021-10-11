@@ -8,11 +8,15 @@ from mlops.app.models.predict import PredictResponseModel
 from mlops.data_processing.text_preprocessing import preprocess_text
 from mlops.utils.config import BASE_DIR, set_env_vars
 
+# setting env vars here for mlflow configuration
 set_env_vars()
 router = APIRouter()
-sk_model = mlflow.sklearn.load_model(
-    model_uri="models:/sk-learn-naive-bayes-clf-model/4"
-)
+
+# manually picking the latest version from trained models
+sk_model = mlflow.sklearn.load_model(model_uri="models:/sk-learn-naive-bayes-clf-model/4")
+
+# mlflow does not store data manipulation routines like label encoding
+# we need to manage the LabelEncoder and TfidfVectorizer ourselves
 with open(BASE_DIR / "artifacts/target_encoder.pkl", "rb") as f:
     target_encoder = pickle.load(f)
 with open(BASE_DIR / "artifacts/vectorizer.pkl", "rb") as f:

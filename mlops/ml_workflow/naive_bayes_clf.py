@@ -10,8 +10,12 @@ from sklearn.preprocessing import LabelEncoder
 
 from mlops.utils.config import set_env_vars
 
+# setting env vars for minio artifact storage
 set_env_vars()
+
 mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
+
+# creates a new mlflow experiment MLFLOW_EXPERIMENT_NAME if it doesn't exist
 exps = [exp.name for exp in mlflow.tracking.MlflowClient().list_experiments()]
 if not os.getenv("MLFLOW_EXPERIMENT_NAME") in exps:
     mlflow.create_experiment(
