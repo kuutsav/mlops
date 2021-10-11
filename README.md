@@ -49,6 +49,7 @@ $ poetry shell
 $ export MLFLOW_S3_ENDPOINT_URL=http://127.0.0.1:9000
 $ export AWS_ACCESS_KEY_ID=minioadmin
 $ export AWS_SECRET_ACCESS_KEY=minioadmin
+
 # make sure that the backend store and artifact locations are same in the .env file as well
 $ mlflow server \
     --backend-store-uri sqlite:///mlflow.db \
@@ -78,6 +79,8 @@ $ minio server minio_data --console-address ":9001"
 
 # Documentation: https://docs.min.io
 ```
+Go to http://127.0.0.1:9001/buckets/ and create a bucket called `mlflow`.
+
 
 ### Dagster
 
@@ -85,3 +88,16 @@ $ minio server minio_data --console-address ":9001"
 $ poetry shell
 $ dagit -f mlops/pipeline.py
 ```
+
+### ElasticAPM
+
+```bash
+$ docker-compose -f docker-compose-monitoring.yaml up
+```
+
+## TODO
+- Setup with `docker-compose`.
+- Load testing.
+- Test cases.
+- CI/CD pipeline.
+- Drift detection.
