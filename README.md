@@ -62,6 +62,7 @@ $ mlflow server \
 $ export MINIO_ROOT_USER=minioadmin
 $ export MINIO_ROOT_PASSWORD=minioadmin
 
+$ mkdir minio_data
 $ minio server minio_data --console-address ":9001"
 
 # API: http://192.168.29.103:9000  http://10.119.80.13:9000  http://127.0.0.1:9000
