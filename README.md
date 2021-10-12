@@ -7,16 +7,16 @@ A project based example of Data pipelines, ML workflow management, API endpoints
 and Monitoring.
 
 Tools used:
-- `Data Pipeline`: [Dagster](https://github.com/dagster-io/dagster)
-- `ML workflow`: [MLflow](https://github.com/mlflow/mlflow)
-- `API Deployment`: [FastAPI](https://github.com/tiangolo/fastapi)
-- `Monitoring`: [ElasticAPM](https://www.elastic.co/apm/)
+- Data Pipeline: [Dagster](https://github.com/dagster-io/dagster)
+- ML workflow: [MLflow](https://github.com/mlflow/mlflow)
+- API Deployment: [FastAPI](https://github.com/tiangolo/fastapi)
+- Monitoring: [ElasticAPM](https://www.elastic.co/apm/)
 
-Blog posts - https://kuutsav.github.io/mlops/mlops_template/setup/
+[Blog posts](https://kuutsav.github.io/mlops/mlops_template/setup/)
 
 ## Requirements
 
-### Poetry [`Dependency management`]
+### Poetry (dependency management)
 
 ```bash
 $ curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
@@ -24,7 +24,7 @@ $ poetry --version
 # Poetry version 1.1.10
 ```
 
-### pre-commit [`Static code analysis`]
+### pre-commit (static code analysis)
 
 ```bash
 $ pip install pre-commit
@@ -32,7 +32,7 @@ $ pre-commit --version
 # pre-commit 2.15.0
 ```
 
-### Minio [`S3 compatible object storage`]
+### Minio (s3 compatible object storage)
 
 Follow the instructions here - https://min.io/download
 
