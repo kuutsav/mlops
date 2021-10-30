@@ -109,7 +109,6 @@ $ python mlops/app/application.py
 
 
 ## TODO
-- Setup with `docker-compose`.
 - Load testing.
 - Test cases.
 - CI/CD pipeline.
