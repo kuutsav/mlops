@@ -14,7 +14,11 @@ Tools used:
 - API Deployment: [FastAPI](https://github.com/tiangolo/fastapi)
 - Monitoring: [ElasticAPM](https://www.elastic.co/apm/)
 
-[Blog posts](https://kuutsav.github.io/blog/mlops-template-part-1-setup/)
+## Blog posts
+- https://kuutsav.github.io/blog/mlops-template-part-1-setup/
+- https://kuutsav.github.io/blog/mlops-template-part-2-dagster-pipeline/
+- https://kuutsav.github.io/blog/mlops-template-part-3-mlflow-minio/
+- https://kuutsav.github.io/blog/mlops-template-part-4-fastapi-elasticapm/
 
 ## Requirements
 
