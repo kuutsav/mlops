@@ -15,10 +15,10 @@ Tools used:
 - Monitoring: [ElasticAPM](https://www.elastic.co/apm/)
 
 ## Blog posts
-- https://kuutsav.github.io/blog/mlops-template-part-1-setup/
-- https://kuutsav.github.io/blog/mlops-template-part-2-dagster-pipeline/
-- https://kuutsav.github.io/blog/mlops-template-part-3-mlflow-minio/
-- https://kuutsav.github.io/blog/mlops-template-part-4-fastapi-elasticapm/
+- https://kuutsav.github.io/docs/MLOps-Template/part-1-setup/
+- https://kuutsav.github.io/docs/MLOps-Template/part-2-dagster-pipeline/
+- https://kuutsav.github.io/docs/MLOps-Template/part-3-mlflow-minio/
+- https://kuutsav.github.io/docs/MLOps-Template/part-4-fastapi-elasticapm/
 
 ## Requirements
 
