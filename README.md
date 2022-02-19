@@ -3,7 +3,7 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 
-![MLops](docs/images/mlops1.png)
+![MLops](docs/images/mlops.png)
 
 A project based example of Data pipelines, ML workflow management, API endpoints
 and Monitoring.
