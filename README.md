@@ -3,18 +3,20 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![Checked with mypy](http://www.mypy-lang.org/static/mypy_badge.svg)](http://mypy-lang.org/)
 
-![MLops](docs/images/mlops.png)
+![MLops](docs/images/mlops1.png)
 
 A project based example of Data pipelines, ML workflow management, API endpoints
 and Monitoring.
 
-Tools used:
+## Tools used
+
 - Data Pipeline: [Dagster](https://github.com/dagster-io/dagster)
 - ML workflow: [MLflow](https://github.com/mlflow/mlflow)
 - API Deployment: [FastAPI](https://github.com/tiangolo/fastapi)
 - Monitoring: [ElasticAPM](https://www.elastic.co/apm/)
 
 ## Blog posts
+
 - https://kuutsav.github.io/docs/MLOps-Template/part-1-setup/
 - https://kuutsav.github.io/docs/MLOps-Template/part-2-dagster-pipeline/
 - https://kuutsav.github.io/docs/MLOps-Template/part-3-mlflow-minio/
@@ -87,8 +89,8 @@ $ minio server minio_data --console-address ":9001"
 
 # Documentation: https://docs.min.io
 ```
-Go to http://127.0.0.1:9001/buckets/ and create a bucket called `mlflow`.
 
+Go to http://127.0.0.1:9001/buckets/ and create a bucket called `mlflow`.
 
 ### Dagster
 
@@ -110,10 +112,3 @@ $ poetry shell
 $ export PYTHONPATH=.
 $ python mlops/app/application.py
 ```
-
-
-## TODO
-- Load testing.
-- Test cases.
-- CI/CD pipeline.
-- Drift detection.
