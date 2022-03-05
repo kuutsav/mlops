@@ -17,10 +17,10 @@ and Monitoring.
 
 ## Blog posts
 
-- https://kuutsav.github.io/docs/MLOps-Template/part-1-setup/
-- https://kuutsav.github.io/docs/MLOps-Template/part-2-dagster-pipeline/
-- https://kuutsav.github.io/docs/MLOps-Template/part-3-mlflow-minio/
-- https://kuutsav.github.io/docs/MLOps-Template/part-4-fastapi-elasticapm/
+- https://kuutsav.github.io/posts/mlops_template_1_setup/
+- https://kuutsav.github.io/posts/mlops_template_2_dagster/
+- https://kuutsav.github.io/posts/mlops_template_3_mlflow_minio/
+- https://kuutsav.github.io/posts/mlops_template_4_fastapi_elasticapm/
 
 ## Requirements
 
