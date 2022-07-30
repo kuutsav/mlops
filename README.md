@@ -15,13 +15,6 @@ and Monitoring.
 - API Deployment: [FastAPI](https://github.com/tiangolo/fastapi)
 - Monitoring: [ElasticAPM](https://www.elastic.co/apm/)
 
-## Blog posts
-
-- https://kuutsav.github.io/posts/mlops_template_1_setup/
-- https://kuutsav.github.io/posts/mlops_template_2_dagster/
-- https://kuutsav.github.io/posts/mlops_template_3_mlflow_minio/
-- https://kuutsav.github.io/posts/mlops_template_4_fastapi_elasticapm/
-
 ## Requirements
 
 ### Poetry (dependency management)
